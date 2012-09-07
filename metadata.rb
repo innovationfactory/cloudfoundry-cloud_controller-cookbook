@@ -9,6 +9,14 @@ version          "0.0.1"
   supports os
 end
 
-%w{ postgresql mysql database cloudfoundry-common }.each do |cb|
+%w{ 
+postgresql 
+mysql 
+database 
+cloudfoundry-common 
+cloudfoundry-ruby-runtime
+cloudfoundry-node-runtime
+cloudfoundry-java-runtime
+}.each do |cb|
   depends cb
 end
