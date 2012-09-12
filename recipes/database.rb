@@ -1,4 +1,5 @@
 include_recipe "cloudfoundry-common"
+include_recipe "postgresql::ruby"
 include_recipe "postgresql::server"
 
 postgresql_database node['cloudfoundry_cloud_controller']['database']['name'] do
