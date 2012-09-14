@@ -18,14 +18,20 @@ package "libxslt1-dev"
 package "sqlite3"
 package "libsqlite3-dev"
 
-ruby_version = node.cloudfoundry_common.ruby_1_9_2_version
+ruby_path    = File.join(rbenv_root, "versions", node.cloudfoundry_common.ruby_1_9_2_version, "bin")
 install_path = File.join(node[:cloudfoundry_common][:vcap][:install_path], "cloud_controller", "cloud_controller")
 
 cloudfoundry_component "cloud_controller" do
   pid_file node.cloudfoundry_cloud_controller.server.pid_file
   log_file node.cloudfoundry_cloud_controller.server.log_file
-  binary "RBENV=#{ruby_version} ruby #{File.join(install_path, "bin", "cloud_controller")}"
+  binary "#{File.join(ruby_path, 'ruby')} #{File.join(install_path, "bin", "cloud_controller")}"
   install_path install_path
+end
+
+template File.join(node[:cloudfoundry_common][:config_dir], 'runtimes.yml') do
+  owner    node.cloudfoundry_common.user
+  mode     "0644"
+  notifies :restart, "service[cloudfoundry-cloud_controller]"
 end
 
 bash "run cloudfoundry migrations" do
