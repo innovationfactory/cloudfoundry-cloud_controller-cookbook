@@ -50,6 +50,9 @@ default['cloudfoundry_cloud_controller']['server']['max_staging_runtime'] = 120
 # TODO (trotter): Find out what this means.
 default['cloudfoundry_cloud_controller']['server']['staging_secure'] = false
 
+# Set the user used by the cloud controller for basic authentication on stager dropplet post
+default['cloudfoundry_cloud_controller']['server']['staging_user'] = 'stager'
+
 # An array containing the email addresses of all server admins.
 default['cloudfoundry_cloud_controller']['server']['admins'] = ['you@example.com']
 

@@ -80,6 +80,11 @@ staging:
   # Create a secure environment for staging
   secure: <%= node[:cloudfoundry_cloud_controller][:server][:staging_secure] %>
 
+  # Used for authentication on staging endpoints
+  auth:
+    user: <%= node[:cloudfoundry_cloud_controller][:server][:staging_user] %>
+    password: <%= node[:cloudfoundry_cloud_controller][:server][:staging_password] %>
+
 # Disable the use of the uaa (our cookbooks don't support it yet).
 uaa:
   enabled: false
