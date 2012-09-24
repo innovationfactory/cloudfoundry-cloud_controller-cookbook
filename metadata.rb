@@ -13,6 +13,7 @@ end
 postgresql 
 mysql 
 database 
+redisio
 cloudfoundry-common 
 cloudfoundry-ruby-runtime
 cloudfoundry-node-runtime
