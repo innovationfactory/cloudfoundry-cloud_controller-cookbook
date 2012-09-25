@@ -85,6 +85,11 @@ staging:
     user: <%= node[:cloudfoundry_cloud_controller][:server][:staging_user] %>
     password: <%= node[:cloudfoundry_cloud_controller][:server][:staging_password] %>
 
+redis:
+  host: <%= node[:ipaddress] %>
+  port: <%= node[:cloudfoundry_cloud_controller][:resque_redis][:port] %>
+  password: <%= node[:cloudfoundry_cloud_controller][:resque_redis][:password] %>
+
 # Disable the use of the uaa (our cookbooks don't support it yet).
 uaa:
   enabled: false

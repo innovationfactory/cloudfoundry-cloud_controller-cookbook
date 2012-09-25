@@ -1,0 +1,32 @@
+# General
+<%= "bind #{@address}" unless @address.nil? %>
+port <%= @port %>
+daemonize yes
+<%= "pidfile #{@pid_file}" unless @address.nil? %>
+# Close the connection after a client is idle for 10 min
+timeout 600
+
+# Auth
+<%= "requirepass #{@requirepass}" unless @requirepass.nil? %>
+
+# Logging
+loglevel notice
+
+# LRU - Evict any key (regardless of expiry being set)
+#maxmemory-policy allkeys-lru
+
+# RDB persistent options
+# Save every 15min if at least 1   key changed
+# Save every 5min  if at least 10  keys changed
+# Save every 60sec if at least 10k keys changed
+save 900 1
+save 300 10
+save 60 10000
+dbfilename services_redis.rdb
+dir <%=@data_dir%>
+rdbcompression yes
+# AOF append only file persistent options
+appendonly yes
+appendfilename services_redis.aof
+# fsync every second is the recommend interval
+appendfsync everysec

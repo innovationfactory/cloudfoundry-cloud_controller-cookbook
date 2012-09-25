@@ -1,0 +1,12 @@
+description "resque redis server"
+
+start on (net-device-up
+          and filesystem
+      and runlevel [2345])
+stop on runlevel [016]
+
+expect fork
+
+exec /usr/local/bin/redis-server <%= @config_file %>
+
+respawn
