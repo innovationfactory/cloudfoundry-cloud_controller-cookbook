@@ -41,15 +41,3 @@ bash "run cloudfoundry migrations" do
   subscribes :run, resources(:git => "#{File.join(node[:cloudfoundry_common][:vcap][:install_path], "cloud_controller")}")
   action :nothing
 end
-
-# Write config files for each framework so that cloud_controller can
-# detect what kind of application it's dealing with.
-if !node[:cloudfoundry_cloud_controller][:server][:frameworks] ||
-    node[:cloudfoundry_cloud_controller][:server][:frameworks].empty?
-  Chef::Log.info "No frameworks specified, skipping framework configs."
-else
-  node[:cloudfoundry_cloud_controller][:server][:frameworks].each do |_, framework|
-    include_recipe framework[:cookbook]
-  end
-end
-

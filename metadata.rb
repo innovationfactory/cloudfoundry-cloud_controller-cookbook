@@ -15,9 +15,6 @@ mysql
 database 
 redisio
 cloudfoundry-common 
-cloudfoundry-ruby-runtime
-cloudfoundry-node-runtime
-cloudfoundry-java-runtime
 openssl
 }.each do |cb|
   depends cb
