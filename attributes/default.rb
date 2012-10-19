@@ -4,7 +4,7 @@ include_attribute "cloudfoundry-common"
 default['cloudfoundry_cloud_controller']['server']['domain'] = 'vcap.me'
 
 # The uri that services can use to reach the cloud controller.
-default['cloudfoundry_cloud_controller']['server']['api_uri'] = "http://api.#{node.cloudfoundry_cloud_controller.server.domain}"
+default['cloudfoundry_cloud_controller']['server']['api_uri'] = "http://api.#{node['cloudfoundry_cloud_controller']['server']['domain']}"
 
 # The welcome message that users will see when first connecting.
 default['cloudfoundry_cloud_controller']['server']['welcome'] = "VMWare's Cloud Application Platform"
