@@ -19,9 +19,9 @@
 ::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
 
 # randomly generate stager password
-node.set_unless[:cloudfoundry_cloud_controller][:server][:staging_password] = secure_password
-node.set_unless[:cloudfoundry_cloud_controller][:resque_redis][:password] = secure_password
-node.save unless Chef::Config[:solo]
+node.set_unless['cloudfoundry_cloud_controller']['server']['staging_password'] = secure_password
+node.set_unless['cloudfoundry_cloud_controller']['resque_redis']['password'] = secure_password
+node.save unless Chef::Config['solo']
 
 include_recipe "cloudfoundry-cloud_controller::database"
 include_recipe "cloudfoundry-cloud_controller::resque_redis"

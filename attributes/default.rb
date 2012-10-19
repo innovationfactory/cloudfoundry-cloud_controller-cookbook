@@ -33,10 +33,10 @@ default['cloudfoundry_cloud_controller']['server']['insecure_instance_port'] = 9
 default['cloudfoundry_cloud_controller']['server']['log_level'] = 'info'
 
 # TODO (trotter): Find out how this differes from `rails_log_file`.
-default['cloudfoundry_cloud_controller']['server']['log_file'] = "#{node[:cloudfoundry_common][:log_dir]}/cloud_controller.log"
+default['cloudfoundry_cloud_controller']['server']['log_file'] = "#{node['cloudfoundry_common']['log_dir']}/cloud_controller.log"
 
 # TODO (trotter): Find out how this differs from `log_file`.
-default['cloudfoundry_cloud_controller']['server']['rails_log_file'] = "#{node[:cloudfoundry_common][:log_dir]}/cloud_controller-rails.log"
+default['cloudfoundry_cloud_controller']['server']['rails_log_file'] = "#{node['cloudfoundry_common']['log_dir']}/cloud_controller-rails.log"
 
 # TODO (trotter): Find out what this means.
 default['cloudfoundry_cloud_controller']['server']['allow_debug'] = true
@@ -69,7 +69,7 @@ default['cloudfoundry_cloud_controller']['server']['services'] = [
 ]
 
 # Where to store the pid_file for the CloudController.
-default['cloudfoundry_cloud_controller']['server']['pid_file'] = File.join(node[:cloudfoundry_common][:pid_dir], "cloud_controller.pid")
+default['cloudfoundry_cloud_controller']['server']['pid_file'] = File.join(node['cloudfoundry_common']['pid_dir'], "cloud_controller.pid")
 
 default['cloudfoundry_cloud_controller']['resque_redis']['version'] = '2.4.17'
 
@@ -79,4 +79,4 @@ default['cloudfoundry_cloud_controller']['resque_redis']['config_dir'] = '/etc/r
 
 default['cloudfoundry_cloud_controller']['resque_redis']['port'] = '6379'
 
-default['cloudfoundry_cloud_controller']['resque_redis']['pid_file'] = File.join(node[:cloudfoundry_common][:pid_dir], "resque_redis.pid")
+default['cloudfoundry_cloud_controller']['resque_redis']['pid_file'] = File.join(node['cloudfoundry_common']['pid_dir'], "resque_redis.pid")

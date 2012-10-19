@@ -33,8 +33,8 @@ Attributes
 * `cloudfoundry_cloud_controller['server']['use_nginx']` - TODO (trotter): Find out what this means. Default is `false`.
 * `cloudfoundry_cloud_controller['server']['insecure_instance_port']` - TODO (trotter): Find out what this means. Default is `9025`.
 * `cloudfoundry_cloud_controller['server']['log_level']` - Log level for the CloudFoundry application. Default is `info'`.
-* `cloudfoundry_cloud_controller['server']['log_file']` - TODO (trotter): Find out how this differes from `rails_log_file`. Default is `#{node[:cloudfoundry_common][:log_dir]}/cloud_controller.log"`.
-* `cloudfoundry_cloud_controller['server']['rails_log_file']` - TODO (trotter): Find out how this differs from `log_file`. Default is `#{node[:cloudfoundry_common][:log_dir]}/cloud_controller-rails.log"`.
+* `cloudfoundry_cloud_controller['server']['log_file']` - TODO (trotter): Find out how this differes from `rails_log_file`. Default is `#{node['cloudfoundry_common']['log_dir']}/cloud_controller.log"`.
+* `cloudfoundry_cloud_controller['server']['rails_log_file']` - TODO (trotter): Find out how this differs from `log_file`. Default is `#{node['cloudfoundry_common']['log_dir']}/cloud_controller-rails.log"`.
 * `cloudfoundry_cloud_controller['server']['allow_debug']` - TODO (trotter): Find out what this means. Default is `true`.
 * `cloudfoundry_cloud_controller['server']['max_current_stagers']` - TODO (trotter): Find out what this means. Default is `10`.
 * `cloudfoundry_cloud_controller['server']['max_staging_runtime']` - TODO (trotter): Find out what this means. Default is `120`.
@@ -44,7 +44,7 @@ Attributes
 * `cloudfoundry_cloud_controller['database']['host']` - Hostname where CloudController's database is located. Default is `localhost'`.
 * `cloudfoundry_cloud_controller['server']['runtimes']` - An array of hashes containing the `name` and `version` for each runtime available in your CloudFoundry instance. XXX (trotter): Not sure we can store hashes in an attribute. Will have to test this part thoroughly. Default is `[`.
 * `cloudfoundry_cloud_controller['server']['frameworks']` - An array containing the name of each framework supported by your CloudFoundry instance. Due to a quirk in cloud_controller, you _must_ have rails3 and sinatra listed as frameworks. Default is `[`.
-* `cloudfoundry_cloud_controller['server']['pid_file']` - Where to store the pid_file for the CloudController. Default is `File.join(node[:cloudfoundry_common][:pid_dir], "cloud_controller.pid")`.
+* `cloudfoundry_cloud_controller['server']['pid_file']` - Where to store the pid_file for the CloudController. Default is `File.join(node['cloudfoundry_common']['pid_dir'], "cloud_controller.pid")`.
 
 
 Usage
