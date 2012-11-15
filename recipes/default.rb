@@ -18,6 +18,8 @@
 #
 ::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
 
+node.default['cloudfoundry_cloud_controller']['server']['api_uri'] = "http://api.#{node['cloudfoundry_cloud_controller']['server']['domain']}"
+
 # randomly generate stager password
 node.set_unless['cloudfoundry_cloud_controller']['server']['staging_password'] = secure_password
 node.set_unless['cloudfoundry_cloud_controller']['resque_redis']['password'] = secure_password
