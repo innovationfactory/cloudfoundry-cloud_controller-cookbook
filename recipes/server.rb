@@ -26,6 +26,7 @@ cloudfoundry_component "cloud_controller" do
   log_file node['cloudfoundry_cloud_controller']['server']['log_file']
   binary "#{File.join(ruby_path, 'ruby')} #{File.join(install_path, "bin", "cloud_controller")}"
   install_path install_path
+  env_vars ["TMPDIR=#{node['cloudfoundry_common']['tmpdir']}"]
 end
 
 template File.join(node['cloudfoundry_common']['config_dir'], 'runtimes.yml') do
