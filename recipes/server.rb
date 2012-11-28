@@ -42,3 +42,9 @@ bash "run cloudfoundry migrations" do
   subscribes :run, resources(:git => "#{File.join(node['cloudfoundry_common']['vcap']['install_path'], "cloud_controller")}")
   action :nothing
 end
+
+template File.join(node['cloudfoundry_common']['staging_manifests_dir'], "standalone.yml") do
+  source "standalone.yml.erb"
+  owner  node['cloudfoundry_common']['user']
+  mode   "0644"
+end
