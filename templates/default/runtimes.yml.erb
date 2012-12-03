@@ -10,6 +10,12 @@
 <%- if runtime['additional_checks'] %>
   additional_checks: <%= runtime['additional_checks'] %> 
 <%- end %>
+<%- if runtime['environment'] %>
+  environment:
+<%- runtime['environment'].each do |env| %>
+    <%= env %>
+<%- end # environment.each %>
+<%- end # if environment %>
 <%- if runtime['debug_env'] %>
   debug_modes:
 <%- runtime['debug_env'].each do |state, _| %>
